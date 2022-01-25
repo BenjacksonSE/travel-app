@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login"
+import Main from "./pages/Main/Main"
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(true);
 
   useEffect(() => {
     // auto-login
@@ -15,16 +16,10 @@ function App() {
     });
   }, []);
 
-  // if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <Login onLogin={setUser} />;
 
-  // return (
-
-  //   <>
-  //       <Login />
-  //   </>
-  // );
   return (
-    <Header />
+    <Main user={user} setUser={setUser} />
   )
 }
 
