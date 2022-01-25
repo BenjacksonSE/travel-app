@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login"
 
 function App() {
@@ -14,14 +15,17 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  // if (!user) return <Login onLogin={setUser} />;
 
+  // return (
+
+  //   <>
+  //       <Login />
+  //   </>
+  // );
   return (
-
-    <>
-        <Login />
-    </>
-  );
+    <Header />
+  )
 }
 
 export default App;
