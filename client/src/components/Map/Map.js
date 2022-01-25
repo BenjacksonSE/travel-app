@@ -1,38 +1,26 @@
-import React, { Component } from 'react';
-import ReactMapGl from 'react-map-gl'
-import 'mapbox-gl/dist/mapbox-gl.css';
+ import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-const mapboxToken = 'pk.eyJ1IjoiYmVuamFja3Nvbjk5IiwiYSI6ImNreXRqOW1sZzAzdXYyb251aWN1eWdmb3gifQ.uC5N2-G_uf-bNf6rNm8YOA'
-
-class Map extends Component {
-  constructor() {
-    super()
-    this.state = {
-      viewport: {
-        width: '100vw',
-        height: '100vh',
-        latitude: 40.78343,
-        longitude: -73.96625,
-        zoom: 11
-      }
-    }
-    this.handleViewportChange = this.handleViewportChange.bind(this)
-  }
-  handleViewportChange(viewport) {
-    this.setState(prevState => ({
-      viewport: {...prevState.viewport, ...viewport}
-    }))
-  }
-  render() {
-    return (
-      <ReactMapGl
-        {...this.state.viewport}
-        onViewportChange={viewport => this.setState({viewport})}
-        mapboxApiAccessToken={mapboxToken}
-        mapStyle="mapbox://styles/mapbox/streets-v10"
+function MyMap() {
+  const position = [40.63, -74.024];
+  return (
+    <MapContainer
+      className="map"
+      center={position}
+      zoom={10}
+      style={{ height: "700px", width: "100%" }}
+    >
+      <TileLayer
+        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-    )
-  }
+      <Marker position={position}>
+      <Popup>
+        A pretty CSS3 popup. <br /> Easily customizable.
+      </Popup>
+    </Marker>
+    </MapContainer>
+  );
 }
 
-export default Map;
+export default MyMap;
