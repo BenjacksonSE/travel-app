@@ -10,26 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_193805) do
+ActiveRecord::Schema.define(version: 2022_01_25_161352) do
 
-  create_table "recipes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "title"
-    t.text "instructions"
-    t.integer "minutes_to_complete"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "itineraries_id"
+    t.float "long"
+    t.float "lat"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_recipes_on_user_id"
+    t.index ["itineraries_id"], name: "index_events_on_itineraries_id"
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "image_url"
-    t.string "bio"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "recipes", "users"
+  add_foreign_key "events", "itineraries", column: "itineraries_id"
+  add_foreign_key "itineraries", "users"
 end

@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from "./Header.module.scss"
-import { Link } from "react-router-dom";
 
 const Header = ({ user, setUser }) => {
   function handleLogoutClick() {
@@ -12,24 +11,17 @@ const Header = ({ user, setUser }) => {
   }
   return (
     <header className={classes.header}>
-      <div className={classes.header__content}>
-        <a href="/" className={classes.header__content__logo}>
-          Travel App
-        </a>
-      <nav className={classes.header__content__nav}>
-        <ul>
-          <li>
-            <a href="/new">Create</a>
-          </li>
-          <li>
-            <p>Username</p>
-          </li>
-        </ul>
-        <button onClick={handleLogoutClick}>Logout</button>
-      </nav>
-    </div>
-
-  </header>
+      <Logo />
+      <Nav />
+      <div className={classes.header__menu}>
+        <div className={classes.header__menu__toggle}>
+          {menuToggle}
+        </div>
+        <aside className={'${classes.menu} ${menuOpen && classes.show}'}>
+          
+        </aside>
+      </div>
+    </header>
   )
 };
 
