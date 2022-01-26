@@ -11,7 +11,7 @@ import CroatiaJPG from "./../../assets/croatia.jpg";
 import GreeceJPG from "./../../assets/greece.jpg";
 import AlbaniaJPG from "./../../assets/albania.jpg";
 
-const Itineraries = () => {
+const Itineraries = (page) => {
     const itineraryData = [
       { id: 1, itinerary: "Bora Bora", isFeatured: true, img: BoraBoraJPG },
       { id: 2, itinerary: "Maldives", isFeatured: true, img: MaldivesJPG },
@@ -23,12 +23,15 @@ const Itineraries = () => {
       { id: 8, itinerary: "Maldives", isFeatured: true, img: MaldivesJPG },
       { id: 9, itinerary: "Cabo San Lucas", isFeatured: false, img: CaboSanLucasJPG },
     ];
+    const mapData = !page ? itineraryData.slice(0, 6) : itineraryData;
+
+    
   return <div className={classes.container}>
     <div className={classes.itineraries}>
       <div className={classes.itineraries__content}>
         <h2 className={classes.itineraries__content__title}>Your Itineraries</h2>
         <div className={classes.itineraries__content__gallery}>
-          {itineraryData.map(({id, itinerary, isFeatured, img}) => 
+          {mapData.map(({id, itinerary, isFeatured, img}) => 
           <div className={classes.gallery__item}>
             <img src={img} alt={itinerary} className={classes.gallery__item__img} />
             <div classNakme={classes.overlay}/>
