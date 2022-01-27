@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login"
 import Main from "./pages/Main/Main"
 
@@ -19,7 +17,7 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <Main user={user} setUser={setUser} />
+        <Main user={user} setUser={setUser} />
   )
 }
 

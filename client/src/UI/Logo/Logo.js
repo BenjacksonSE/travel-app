@@ -6,7 +6,7 @@ const Logo = () => {
   return <a href="/" className={classes.logo}>
     <LeafSVG fillColor={"white"}/>
     <span>
-       FlataItinerary
+       My Maps
     </span>
   </a>;
 };

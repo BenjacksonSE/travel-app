@@ -2,10 +2,10 @@ import {useState, useEffect} from 'react';
 
 import classes from "./Itineraries.module.scss"
 import { BsArrowRight } from "react-icons/bs";
-
+import Footer from '../Footer/Footer';
 import Card from './Card/Card';
 
-const Itineraries = (page) => {
+const Itineraries = () => {
   const [itineraryData, setItineraryData] = useState([]);
     
     useEffect(() => {
@@ -30,7 +30,8 @@ const Itineraries = (page) => {
   }, []);
 
     
-  return <div className={classes.container}>
+  return (
+  <div className={classes.container}>
     <div className={classes.itineraries}>
       <div className={classes.itineraries__content}>
         <h2 className={classes.itineraries__content__title}>Your Itineraries</h2>
@@ -46,23 +47,10 @@ const Itineraries = (page) => {
         </div>
       </div>
     </div>
+    <Footer />
 
-  </div>;
+  </div>
+  )
 };
 
 export default Itineraries;
-
-
-            //   <div className={classes.gallery__item}>
-            //     <img src={img} alt={itinerary} className={classes.gallery__item__img} />
-            //     <div className={classes.overlay}/>
-            //     <div className={classes.gallery__item__content}>
-            //   <IoLocationOutline />
-            //   <h2 className={classes.gallery__item__content__itinerary}>
-            //     {itinerary}
-            //   </h2>
-            // </div>
-            // {/* {isRecent(
-            //   <div className={classes.gallery__item__tag}>Recents</div>
-            // )} */}
-          // </div>

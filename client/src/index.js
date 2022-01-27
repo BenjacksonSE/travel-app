@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 
 
 ReactDOM.render(
+  
     <App />,
   document.getElementById('root')
 );

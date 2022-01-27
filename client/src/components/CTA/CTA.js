@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from "./CTA.module.scss"
 import coverVid from "./../../assets/cover.mp4"
+import coverBoomerang from "./../../assets/coverBoomerang.mp4"
 import Button from "../../UI/Button/Button"
 
 const CTA = () => {
   return <div className={classes.container}>
-    <video muted loop autoPlay={true} className={classes.video} id={"video"} src={coverVid}></video>
+    <video muted loop autoPlay={true} className={classes.video} id={"video"} src={coverBoomerang}></video>
     <div className={classes.cta}>
       <div className={classes.cta__content}>
         <h1 className={classes.cta__content__title}>Your next vacation is waiting on YOU</h1>

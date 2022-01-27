@@ -9,7 +9,7 @@ const Nav = ( {isMenu, menuToggle, handleLogoutClick, handleCreate}) => {
         <a href="/">Itineraries</a>
       </li>
       <li onClick={menuToggle}>
-        <button className={classes.logoutbutton} onClick={handleLogoutClick} href="">Logout</button>
+        <a className={classes.logoutbutton} onClick={handleLogoutClick}>Logout</a>
       </li>
     </ul>
     <Button className={classes.create} onClick={handleCreate}>Create</Button>
