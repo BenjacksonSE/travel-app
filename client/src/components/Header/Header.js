@@ -5,7 +5,7 @@ import classes from "./Header.module.scss"
 import Nav from './Nav/Nav';
 import {CgMenuRight, CgClose} from "react-icons/cg"
 
-const Header = ({ user, setUser }) => {
+const Header = ({ user, setUser, handleCreate }) => {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -28,13 +28,13 @@ const Header = ({ user, setUser }) => {
   return (
     <header className={classes.header}>
       <Logo />
-      <Nav />
+      <Nav handleLogoutClick={handleLogoutClick} setUser={setUser}/>
       <div className={classes.header__menu}>
         <div className={classes.header__menu__toggle}>
           {menuToggle}
         </div>
         <aside className={`${classes.menu} ${menuOpen && classes.show}`}>
-          <Nav isMenu menuToggle={handleMenuToggle} />
+          <Nav handleCreate={handleCreate} isMenu menuToggle={handleMenuToggle} />
         </aside>
       </div>
     </header>

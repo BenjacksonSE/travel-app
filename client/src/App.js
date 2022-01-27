@@ -5,7 +5,7 @@ import Login from "./pages/Login/Login"
 import Main from "./pages/Main/Main"
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     // auto-login

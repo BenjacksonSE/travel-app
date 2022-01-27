@@ -1,0 +1,77 @@
+@import "./../../../styles/variables.scss";
+.gallery__item {
+                cursor: pointer;
+                position: relative;
+                border-radius: $borderRadius;
+                border: 2px solid $white;
+                transition: 0.3s ease all;
+                box-shadow: $boxShadow;
+
+                &:hover {
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.2),
+                        0 3px 3px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1),
+                        0 10px 10px rgba(0, 0, 0, 0.05);
+
+                    .overlay {
+                        background: transparent;
+                    }
+                }
+
+                &__img {
+                    border-top-left-radius: $borderRadius;
+                    border-top-right-radius: $borderRadius;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 75%;
+                    object-fit: cover;
+                }
+                .overlay {
+                    border-top-left-radius: $borderRadius;
+                    border-top-right-radius: $borderRadius;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 75%;
+                    background: rgba($dark, 0.4);
+                    transition: 0.3s ease all;
+                }
+                &__content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 25%;
+                    background: $white;
+                    border-bottom-left-radius: $borderRadius;
+                    border-bottom-right-radius: $borderRadius;
+
+                    svg {
+                        color: $aqua;
+                        font-size: 1.1rem;
+                    }
+
+                    &__itinerary {
+                        margin-left: 6px;
+                        font-size: 1.2rem;
+                        color: $dark;
+                        letter-spacing: $letterSpacing;
+                    }
+                }
+
+                &__tag {
+                    position: absolute;
+                    background: $white;
+                    top: -12px;
+                    left: $spacing-sm;
+                    padding: 6px 8px;
+                    border-radius: $borderRadius;
+                    font-size: 0.8rem;
+                    letter-spacing: $letterSpacing;
+                }
+            }
