@@ -1,6 +1,6 @@
-class CreateItineraries < ActiveRecord::Migration[6.1]
+class CreateMymaps < ActiveRecord::Migration[6.1]
   def change
-    create_table :itineraries do |t|
+    create_table :mymaps do |t|
       t.belongs_to :user, null: false, foreign_key: true
       t.string :title
 

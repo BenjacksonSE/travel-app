@@ -16,20 +16,20 @@ ActiveRecord::Schema.define(version: 2022_01_25_161352) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.bigint "itineraries_id"
+    t.bigint "mymap_id"
     t.float "long"
     t.float "lat"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["itineraries_id"], name: "index_events_on_itineraries_id"
+    t.index ["mymap_id"], name: "index_events_on_mymap_id"
   end
 
-  create_table "itineraries", force: :cascade do |t|
+  create_table "mymaps", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_itineraries_on_user_id"
+    t.index ["user_id"], name: "index_mymaps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +40,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_161352) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "events", "itineraries", column: "itineraries_id"
-  add_foreign_key "itineraries", "users"
+  add_foreign_key "events", "mymaps"
+  add_foreign_key "mymaps", "users"
 end

@@ -1,30 +1,12 @@
 import {useState, useEffect} from 'react';
 
 import classes from "./Itineraries.module.scss"
-
-import { IoLocationOutline } from "react-icons/io5";
 import { BsArrowRight } from "react-icons/bs";
 
-import BoraBoraJPG from "./../../assets/borabora.jpg";
-import MaldivesJPG from "./../../assets/maldives.jpg";
-import CaboSanLucasJPG from "./../../assets/cabosanlucas.jpg";
-import CroatiaJPG from "./../../assets/croatia.jpg";
-import GreeceJPG from "./../../assets/greece.jpg";
-import AlbaniaJPG from "./../../assets/albania.jpg";
 import Card from './Card/Card';
 
 const Itineraries = (page) => {
   const [itineraryData, setItineraryData] = useState([]);
-    // const picture array = [BoraBoraJPG, MaldivesJPG,
-    //   { id: 3, itinerary: "Cabo San Lucas", isRecent: false, img: CaboSanLucasJPG },
-    //   { id: 4, itinerary: "Croatia", isRecent: false, img: CroatiaJPG },
-    //   { id: 5, itinerary: "Greece", isRecent: false, img: GreeceJPG },
-    //   { id: 6, itinerary: "Albania", isRecent: true, img: AlbaniaJPG },
-    //   { id: 7, itinerary: "Bora Bora", isRecent: true, img: BoraBoraJPG },
-    //   { id: 8, itinerary: "Maldives", isRecent: true, img: MaldivesJPG },
-    //   { id: 9, itinerary: "Cabo San Lucas", isRecent: false, img: CaboSanLucasJPG },
-    // ];
-    // const mapData = !page ? itineraryData.slice(0, 6) : itineraryData;
     
     useEffect(() => {
     fetch(`/mymaps`)
