@@ -10,9 +10,12 @@ import L from "leaflet"
 function MyMap({mapID}) {
   const _created = (e) => handleCreate(e)
   const position = [40.63, -74.024];
-  const [currMap, setCurrMap] = useState({})
+  const [events, setEvents] = useState(null)
 
   function handleCreate(e) {
+    console.log(e.layer._latlng.lat)
+    console.log(e.layer._latlng.lng)
+    console.log(mapID)
     fetch("/events", {
       method: "POST",
       headers: {
@@ -25,7 +28,7 @@ function MyMap({mapID}) {
       }),
     }).then((r) => {
       if (r.ok) {
-        console.log("Created");
+        console.log(r);
       } else {
         r.json().then((err) => console.log(err.errors));
       }
@@ -33,12 +36,12 @@ function MyMap({mapID}) {
   }
 
   useEffect(() => {
-    fetch(`/mymaps/${mapID}`)
+    fetch(`/events`)
       .then((r) => r.json())
       .catch((e) => console.log(e))
-      .then((map) => {
-          setCurrMap(map);
-          console.log(currMap)
+      .then((events) => {
+          setEvents(events)
+          console.log(events)
         })}
   , []);
   
@@ -69,6 +72,10 @@ function MyMap({mapID}) {
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      {events && events.map(marker=>(
+        <Marker key={marker.id} position={[marker.lat, marker.long]}>
+        </Marker>
+      ))}
       {/* <PrintControl ref={PrintControlDefault} position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} hideControlContainer={false} />
       <PrintControl position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} hideControlContainer={false} title="Export as PNG" exportOnly /> */}
     </MapContainer>

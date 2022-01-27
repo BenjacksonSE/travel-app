@@ -12,7 +12,7 @@ const CTA = () => {
         <h1 className={classes.cta__content__title}>Your next vacation is waiting on YOU</h1>
         <span className={classes.cta__content__tagline}>Plan your itinerary for you next dream getaway totaly free!</span>
         <p className={classes.cta__content__description}>
-          Lorem ipsum dolor sit amet, consectetur adispiscing elit. Facere beatae itaque ea ducimus, mollitia voluptate laudantium.
+          HIRE ME :D
         </p>
         <div className={classes.cta__content__button}>
           <Button>Create Now</Button>
